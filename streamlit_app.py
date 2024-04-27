@@ -1,4 +1,5 @@
 import streamlit as st
+import warnings
 import pandas as pd
 import numpy as np
 import pickle
@@ -48,5 +49,7 @@ if st.button('Predict Fraud'):
         st.error('This transaction is likely to be fraudulent.')
     else:
         st.success('This transaction is likely to be non-fraudulent.')
+
+warnings.filterwarnings('ignore', category=UserWarning, message="X does not have valid feature names")
 
 # `streamlit run streamlit_app.py` 
